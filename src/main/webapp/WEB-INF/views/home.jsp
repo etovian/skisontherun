@@ -12,6 +12,7 @@
 	<script type="text/javascript" src="resources/bower_components/angular-route/angular-route.min.js"></script>
 	<script type="text/javascript" src="resources/bower_components/angular-animate/angular-animate.min.js"></script>
 	<script type="text/javascript" src="resources/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="resources/bower_components/underscore/underscore-min.js"></script>
 	
 	<script type="text/javascript" src="resources/js/app.js"></script>
 	<script type="text/javascript" src="resources/js/route.config.js"></script>
@@ -19,6 +20,8 @@
 	<script type="text/javascript" src="resources/js/controller/home.controller.js"></script>
 	<script type="text/javascript" src="resources/js/controller/welcome.controller.js"></script>
 	<script type="text/javascript" src="resources/js/controller/equipment.controller.js"></script>
+	
+	<script type="text/javascript" src="resources/js/service/notification.service.js"></script>
 
 	<title>Skis on the Run</title>
 </head>
@@ -45,10 +48,16 @@
 	</nav>
 
 	<div class="main-content container-fluid">
-	
 		<div class="ng-view"></div>
-<!-- 		<button type="button" data-ng-show="home.showButton" data-ng-click="home.greeting();">Howdy</button> -->
-<!-- 		<input type="checkbox" data-ng-model="home.showButton"> -->
+	</div>
+	
+	<div class="message-container">
+		<div 
+			data-ng-repeat="m in home.notificationService.activeNotifications"
+			class="alert alert-info shadow">
+			<h4>{{ m.title }}</h4>
+			<p>{{ m.text }}</p>
+		</div>
 	</div>
 
 </body>

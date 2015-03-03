@@ -31,3 +31,18 @@
 /* 	-o-animation: fadeIn 1s; */
 /* 	animation: fadeIn 1s; */
 /* } */
+
+.message-container {
+	position: fixed;
+	background-color: white;
+/* 	top: 0px; */
+	right: 25px;
+	bottom: 50px;
+	width: 300px;
+}
+
+.shadow {
+	-webkit-box-shadow: 4px 4px 5px 0px rgba(50, 50, 50, 0.75);
+	-moz-box-shadow:    4px 4px 5px 0px rgba(50, 50, 50, 0.75);
+	box-shadow:         4px 4px 5px 0px rgba(50, 50, 50, 0.75);	
+}
