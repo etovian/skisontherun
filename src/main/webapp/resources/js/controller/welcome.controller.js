@@ -14,7 +14,8 @@
 		
 		notificationService.add({
 			title: "Welcome!",
-			text: "Do you want to build a snowman?"
+			text: "Do you want to build a snowman?",
+			type: "WARNING"
 		})
 	};
 	

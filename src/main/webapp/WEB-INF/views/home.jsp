@@ -57,10 +57,10 @@
 	
 	<div class="message-container">
 		<div 
-			data-ng-repeat="m in home.getActiveNotifications()"
-			class="alert alert-info shadow">
-			<h4>{{ m.title }}</h4>
-			<p>{{ m.text }}</p>
+			data-ng-repeat="n in home.getActiveNotifications()"
+			class="shadow alert" data-ng-class="home.getNotificationClass(n)">
+			<h4>{{ n.title }}</h4>
+			<p>{{ n.text }}</p>
 		</div>
 	</div>
 

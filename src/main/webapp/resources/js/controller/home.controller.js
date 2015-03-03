@@ -14,6 +14,9 @@
 			},
 			getActiveNotifications: function() {
 				return notificationService.activeNotifications;
+			},
+			getNotificationClass: function(notification) {
+				return notificationService.getNotificationClass(notification);
 			}
 		});
 		

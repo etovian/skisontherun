@@ -16,6 +16,28 @@ function NotificationService($timeout) {
 					service.inactiveNotifications.push(notification);
 				}, displaySeconds)	
 			}
+		},
+		getNotificationClass: function(notification) {
+			var cssClass = "";
+			switch(notification.type) {
+				case "INFO":
+					cssClass = "alert-info";
+					break;
+				case "SUCCESS":
+					cssClass = "alert-success";
+					break;
+				case "WARNING":
+					cssClass = "alert-warning";
+					break;
+				case "DANGER":
+					cssClass = "alert-danger";
+					break;
+				default:
+					cssClass = "alert-info"
+					break;
+			}
+			
+			return cssClass;
 		}
 	}
 }

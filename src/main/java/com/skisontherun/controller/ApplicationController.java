@@ -22,7 +22,7 @@ public class ApplicationController {
 		Response response = new Response();
 		String title = "POW POW!";
 		String text = "Shred it, yo!";
-		Notification notification = new Notification(title, text, NotificationType.INFO);
+		Notification notification = new Notification(title, text, NotificationType.DANGER);
 		response.addCommand(notification);
 		return response;
 	}
