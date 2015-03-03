@@ -20,7 +20,9 @@ public class ApplicationController {
 	@RequestMapping("/initialization-request")
 	public @ResponseBody Response initializationRequest() {
 		Response response = new Response();
-		Notification notification = new Notification("Skis on the Run!", "Welcome to our store!", NotificationType.INFO);
+		String title = "POW POW!";
+		String text = "Shred it, yo!";
+		Notification notification = new Notification(title, text, NotificationType.INFO);
 		response.addCommand(notification);
 		return response;
 	}

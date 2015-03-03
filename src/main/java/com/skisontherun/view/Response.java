@@ -26,7 +26,7 @@ public class Response {
 	
 	public Response addCommand(Notification notification) {
 		ClientCommand<Notification> command = new ClientCommand<Notification>();
-		command.setScopeMethod("notificationService.add");
+		command.setScopeMethod("addNotification");
 		command.setPayload(notification);
 		commands.add(command);
 		return this;

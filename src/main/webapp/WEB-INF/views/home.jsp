@@ -21,7 +21,11 @@
 	<script type="text/javascript" src="resources/js/controller/welcome.controller.js"></script>
 	<script type="text/javascript" src="resources/js/controller/equipment.controller.js"></script>
 	
+	<script type="text/javascript" src="resources/js/service/application.service.js"></script>
 	<script type="text/javascript" src="resources/js/service/notification.service.js"></script>
+	<script type="text/javascript" src="resources/js/service/promiseHandler.service.js"></script>
+	<script type="text/javascript" src="resources/js/service/requestHandler.service.js"></script>
+	<script type="text/javascript" src="resources/js/service/responseHandler.service.js"></script>
 
 	<title>Skis on the Run</title>
 </head>
@@ -53,7 +57,7 @@
 	
 	<div class="message-container">
 		<div 
-			data-ng-repeat="m in home.notificationService.activeNotifications"
+			data-ng-repeat="m in home.getActiveNotifications()"
 			class="alert alert-info shadow">
 			<h4>{{ m.title }}</h4>
 			<p>{{ m.text }}</p>

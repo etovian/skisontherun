@@ -4,19 +4,21 @@
 		.module("app")
 		.controller("HomeController", HomeController);
 	
-	function HomeController(notificationService) {
+	function HomeController(notificationService, applicationService) {
 		
 		var vm = this;
 		
 		angular.extend(vm, {
-			notificationService: notificationService
+			addNotification: function(notification) {
+				notificationService.add(notification);
+			},
+			getActiveNotifications: function() {
+				return notificationService.activeNotifications;
+			}
 		});
 		
-		vm.notificationService.add({
-			title: "Welcome!",
-			text: "Hello there, handsome!",
-			type: "INFO"
-		});
+		applicationService.initialize(vm);
+
 	};
 	
 })();

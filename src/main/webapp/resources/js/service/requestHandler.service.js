@@ -2,7 +2,7 @@ angular
 	.module("app")
 	.factory("requestHandlerService", RequestHandlerService);
 
-function RequestHandlerService() {
+function RequestHandlerService($http, $log, $q) {
 	return {
 		getHttpPromise: function(request) {
 			var deferred = $q.defer();
