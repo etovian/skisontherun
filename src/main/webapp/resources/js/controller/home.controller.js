@@ -17,6 +17,15 @@
 			},
 			getNotificationClass: function(notification) {
 				return notificationService.getNotificationClass(notification);
+			},
+			getNotificationTypes: function() {
+				return notificationService.getNotificationTypes();
+			},
+			getLastNotification: function() {
+				return notificationService.getLastNotification();
+			},
+			postNotification: function(notification) {
+				notificationService.postNotification(notification);
 			}
 		});
 		

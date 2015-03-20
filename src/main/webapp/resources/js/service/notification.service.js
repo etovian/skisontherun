@@ -2,10 +2,11 @@ angular
 	.module("app")
 	.factory("notificationService", NotificationService);
 
-function NotificationService($timeout) {
+function NotificationService($timeout, requestHandlerService) {
 	return {
 		activeNotifications: [],
 		inactiveNotifications: [],
+		lastNotification: null,
 		add: function(notification) {
 			var service = this;
 			this.activeNotifications.push(notification);
@@ -16,28 +17,43 @@ function NotificationService($timeout) {
 					service.inactiveNotifications.push(notification);
 				}, displaySeconds)	
 			}
+			this.lastNotification = notification;
+		},
+		getLastNotification: function() {
+			return this.lastNotification;
 		},
 		getNotificationClass: function(notification) {
 			var cssClass = "";
-			switch(notification.type) {
-				case "INFO":
-					cssClass = "alert-info";
-					break;
-				case "SUCCESS":
-					cssClass = "alert-success";
-					break;
-				case "WARNING":
-					cssClass = "alert-warning";
-					break;
-				case "DANGER":
-					cssClass = "alert-danger";
-					break;
-				default:
-					cssClass = "alert-info"
-					break;
+			if(notification) {
+				switch(notification.type) {
+					case "INFO":
+						cssClass = "alert-info";
+						break;
+					case "SUCCESS":
+						cssClass = "alert-success";
+						break;
+					case "WARNING":
+						cssClass = "alert-warning";
+						break;
+					case "DANGER":
+						cssClass = "alert-danger";
+						break;
+					default:
+						cssClass = "alert-info"
+						break;
+				}				
 			}
 			
 			return cssClass;
+		},
+		getNotificationTypes: function() {
+			return [ "INFO", "SUCCESS", "WARNING", "DANGER" ];
+		},
+		postNotification: function(notification) {
+			requestHandlerService.postHttpPromise({
+				url: "app/postNotification",
+				payload: notification
+			});
 		}
 	}
 }

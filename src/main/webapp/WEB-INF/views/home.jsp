@@ -52,6 +52,19 @@
 	</nav>
 
 	<div class="main-content container-fluid">
+		<div 
+			class="shadow alert" data-ng-class="home.getNotificationClass(home.getLastNotification())">
+			<h4>{{ home.getLastNotification().title }}</h4>
+			<p>{{ home.getLastNotification().text }}</p>
+			<select data-ng-model="home.getLastNotification().type" data-ng-options="s as s for s in home.getNotificationTypes()">
+			</select>
+			<button 
+				class="btn btn-default"
+				data-ng-click="home.postNotification(home.getLastNotification());">
+				Post me!
+			</button>
+		</div>
+	
 		<div class="ng-view"></div>
 	</div>
 	
