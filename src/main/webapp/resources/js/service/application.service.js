@@ -2,12 +2,13 @@ angular
 	.module("app")
 	.factory("applicationService", ApplicationService);
 
-function ApplicationService(promiseHandlerService, requestHandlerService) {
+function ApplicationService(requestHandlerService) {
+
 	return {
-		initialize: function(scope) {
-			promiseHandlerService.handle(requestHandlerService.getHttpPromise({
+		initialize: function() {
+			return requestHandlerService.getHttpPromise({
 				url: "app/initialization-request"
-			}), scope);
+			});
 		}
 	};
 }

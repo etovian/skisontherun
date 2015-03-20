@@ -4,7 +4,7 @@
 		.module("app")
 		.controller("HomeController", HomeController);
 	
-	function HomeController(notificationService, applicationService) {
+	function HomeController(notificationService, applicationService, promiseHandlerService) {
 		
 		var vm = this;
 		
@@ -32,8 +32,7 @@
 			}
 		});
 		
-		applicationService.initialize(vm);
-
+		promiseHandlerService.handle(applicationService.initialize(), vm);
 	};
 	
 })();
