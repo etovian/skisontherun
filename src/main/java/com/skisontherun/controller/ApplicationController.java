@@ -28,8 +28,25 @@ public class ApplicationController {
 		return response;
 	}
 
+//	@RequestMapping(value = "/postNotification", method = RequestMethod.POST)
+//	public @ResponseBody String postNotification(@RequestBody Notification notification) {
+//		NotificationType type = notification.getType();
+//		return type.name();
+//	}
+//	
+//	@RequestMapping(value = "/postNotificationType", method = RequestMethod.POST)
+//	public @ResponseBody String postNotification(@RequestBody NotificationType type) {
+//		logger.debug(type.name());
+//		return type.name();
+//	}
+	
 	@RequestMapping(value = "/postNotification", method = RequestMethod.POST)
 	public void postNotification(@RequestBody Notification notification) {
-		NotificationType type = notification.getType();
+		logger.debug(notification.getType().name());
+	}
+	
+	@RequestMapping(value = "/postNotificationType", method = RequestMethod.POST)
+	public void postNotificationType(@RequestBody NotificationType type) {
+		logger.debug(type.name());
 	}
 }

@@ -26,6 +26,9 @@
 			},
 			postNotification: function(notification) {
 				notificationService.postNotification(notification);
+			},
+			postNotificationType: function(notification) {
+				notificationService.postNotificationType(notification);
 			}
 		});
 		

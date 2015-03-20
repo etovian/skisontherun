@@ -61,7 +61,12 @@
 			<button 
 				class="btn btn-default"
 				data-ng-click="home.postNotification(home.getLastNotification());">
-				Post me!
+				Post Notification!
+			</button>
+			<button 
+				class="btn btn-default"
+				data-ng-click="home.postNotificationType(home.getLastNotification());">
+				Post Notification Type (Enum)!
 			</button>
 		</div>
 	

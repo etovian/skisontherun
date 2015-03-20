@@ -54,6 +54,12 @@ function NotificationService($timeout, requestHandlerService) {
 				url: "app/postNotification",
 				payload: notification
 			});
+		},
+		postNotificationType: function(notification) {
+			requestHandlerService.postHttpPromise({
+				url: "app/postNotificationType",
+				payload: JSON.stringify(notification.type)
+			});
 		}
 	}
 }
